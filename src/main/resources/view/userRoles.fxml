@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="750" prefWidth="900" stylesheets="@application.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserRolesController">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+            <Button fx:id="newUser" layoutX="592.0" layoutY="167.0" mnemonicParsing="false" onAction="#goToCreate" text="Add New User" />
+            <AnchorPane fx:id="values" layoutX="28.0" layoutY="111.0" prefHeight="280.0" prefWidth="494.0" />
+            <Button layoutX="785.0" layoutY="708.0" mnemonicParsing="false" onAction="#goToLoginInfo" text="Go Back" />
+            <Label layoutX="878.0" layoutY="5.0" onMouseClicked="#close" text="X" />
+            <Label fx:id="title" layoutX="409.0" layoutY="56.0" text="User Roles" />
+            <Button layoutX="592.0" layoutY="226.0" mnemonicParsing="false" text="Export" onAction="#exportList" />
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>

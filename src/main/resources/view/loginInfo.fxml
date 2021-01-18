@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="900.0" style="-fx-background-color: #455A64;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginInfoController">
+    <children>
+        <MenuBar layoutY="2.0" onMouseDragged="#move" onMousePressed="#getLocation" styleClass="root" stylesheets="@application.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <menus>
+                <Menu mnemonicParsing="false" style="-fx-background-color: #455A64;" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" style="-fx-background-color: #455A64;" text="Close" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" style="-fx-background-color: #455A64;" text="Edit">
+                    <items>
+                        <MenuItem mnemonicParsing="false" style="-fx-background-color: #455A64;" text="Delete" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" style="-fx-background-color: #455A64;" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" style="-fx-background-color: #455A64;" text="About" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <SplitPane dividerPositions="0.25034965034965034" layoutY="25.0" prefHeight="459.0" prefWidth="717.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+            <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #455A64;" styleClass="root">
+               <children>
+                  <AnchorPane prefHeight="725.0" prefWidth="221.0" style="-fx-background-color: #607D8B;" styleClass="simulation-box" stylesheets="@application.css">
+                     <children>
+                        <Button layoutX="114.0" layoutY="685.0" mnemonicParsing="false" onAction="#goToLogin" style="-fx-background-color: white; -fx-text-fill: black;" text="Log Out" />
+                        <Button fx:id="addHouse" layoutX="57.0" layoutY="147.0" mnemonicParsing="false" onAction="#addHouseLayout" style="-fx-background-color: white; -fx-text-fill: black;" text="Add Layout" />
+                        <Button layoutX="56.0" layoutY="212.0" mnemonicParsing="false" onAction="#goToEdit" style="-fx-background-color: white; -fx-text-fill: black;" text="Edit" />
+                        <Label fx:id="date" layoutX="16.0" layoutY="451.0" stylesheets="@application.css" text="_date" />
+                        <Label fx:id="time" layoutX="16.0" layoutY="477.0" stylesheets="@application.css" text="_time" />
+                        <Label layoutX="15.0" layoutY="353.0" style="-fx-font-size: 18px;" stylesheets="@application.css" text="Location:" />
+                        <Hyperlink fx:id="loc" layoutX="14.0" layoutY="376.0" onAction="#goToEdit" text="location" textFill="#ff9900" />
+                        <Label fx:id="user" layoutX="16.0" layoutY="14.0" style="-fx-font-size: 20px;" stylesheets="@application.css" text="user" />
+                        <Label layoutX="15.0" layoutY="289.0" style="-fx-font-size: 18px;" styleClass="title" stylesheets="@application.css" text="Outside Temperature: " />
+                        <HBox fx:id="hBoxTemperature" alignment="CENTER" layoutX="14.0" layoutY="312.0" prefHeight="27.0" prefWidth="169.0" spacing="5.0">
+                           <children>
+                              <Label fx:id="temperature" onMouseClicked="#temperatureOnClick" stylesheets="@application.css" text="_temperature" />
+                              <Label text="°C" />
+                           </children>
+                        </HBox>
+                        <Button layoutX="62.0" layoutY="526.0" mnemonicParsing="false" onAction="#bt_changeDateTimeOnClick" style="-fx-background-color: white; -fx-text-fill: black;" text="Change Time" />
+                        <AnchorPane fx:id="anchorToggle" layoutX="18.0" layoutY="42.0" prefHeight="94.0" prefWidth="188.0" />
+                        <HBox fx:id="invisibleContainer" layoutX="1.0" layoutY="632.0" prefHeight="35.0" prefWidth="222.0" visible="false">
+                           <children>
+                              <Label text="this is an invisible container to do the node swapping" />
+                              <TextField fx:id="textFieldTemperature" />
+                           </children>
+                        </HBox>
+                        <Button layoutX="121.0" layoutY="564.0" mnemonicParsing="false" onAction="#increaseClockSpeed" style="-fx-max-width: 40;" text=" +" />
+                        <Button layoutX="62.0" layoutY="564.0" mnemonicParsing="false" onAction="#decreaseClockSpeed" style="-fx-max-width: 40;" text="-" />
+                        <Button layoutX="61.0" layoutY="611.0" mnemonicParsing="false" onAction="#resetClockSpeed" text="Reset speed" />
+                        <Label fx:id="season" layoutX="66.0" layoutY="432.0" prefHeight="19.0" prefWidth="66.0" stylesheets="@application.css" text="SEASON" />
+                     </children>
+                  </AnchorPane>
+               </children></AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="729.0" prefWidth="668.0" style="-fx-background-color: #455A64;">
+                    <children>
+                        <SplitPane dividerPositions="0.8307905686546463" layoutX="-10.0" layoutY="52.0" orientation="VERTICAL" prefHeight="457.0" prefWidth="529.0" style="-fx-background-color: #455A64;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-10.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <items>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #455A64;">
+                                    <children>
+                                        <SplitPane dividerPositions="0.5103969754253308" layoutX="98.0" layoutY="62.0" prefHeight="328.0" prefWidth="531.0" style="-fx-background-color: #455A64;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <items>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" stylesheets="@application.css">
+                                                    <children>
+                                                        <TabPane layoutX="8.0" layoutY="7.0" prefHeight="326.0" prefWidth="267.0" styleClass="root" stylesheets="@application.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                            <tabs>
+                                                                <Tab style="-fx-background-color: #FF5722;" text="SHS">
+                                                                    <content>
+                                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                         <children>
+                                                            <AnchorPane layoutX="9.0" prefHeight="534.0" prefWidth="332.0" stylesheets="@application.css">
+                                                               <children>
+                                                                          <Button layoutX="214.0" layoutY="84.0" mnemonicParsing="false" onAction="#goToUserSettings" style="-fx-background-color: white; -fx-text-fill: black;" text="User Control" />
+                                                                          <Label fx:id="userRole" layoutX="48.0" layoutY="35.0" text="User Group" />
+                                                                  <ComboBox fx:id="selectedUser" layoutX="184.0" layoutY="30.0" prefHeight="25.0" prefWidth="120.0" />
+                                                                  <Label layoutX="48.0" layoutY="175.0" text="Permissions" />
+                                                                  <AnchorPane fx:id="permissionsList" layoutX="14.0" layoutY="203.0" prefHeight="318.0" prefWidth="306.0" />
+                                                               </children>
+                                                            </AnchorPane>
+                                                         </children></AnchorPane>
+                                                                    </content>
+                                                                </Tab>
+                                                                <Tab style="-fx-background-color: #FF9800;" text="SHC">
+                                                                    <content>
+                                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                                            <children>
+                                                                                <SplitPane layoutX="54.0" layoutY="-13.0" orientation="VERTICAL" prefHeight="533.0" prefWidth="357.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                                    <items>
+                                                                                        <AnchorPane fx:id="anchorSHC" minHeight="0.0" minWidth="0.0" prefHeight="275.0" prefWidth="281.0" style="-fx-background-color: #455A64;">
+                                                                     <children>
+                                                                        <VBox fx:id="vboxSHCRooms" layoutX="13.0" layoutY="38.0" prefHeight="130.0" prefWidth="84.0" />
+                                                                        <VBox fx:id="vboxSHCLights" layoutX="101.0" layoutY="38.0" prefHeight="130.0" prefWidth="20.0" />
+                                                                        <VBox fx:id="vboxSHCWindows" layoutX="126.0" layoutY="38.0" prefHeight="130.0" prefWidth="100.0" />
+                                                                        <VBox fx:id="vboxSHCDoors" layoutX="232.0" layoutY="38.0" prefHeight="130.0" prefWidth="100.0" />
+                                                                        <Label fx:id="labelRoomName" layoutX="13.0" layoutY="9.0" prefHeight="19.0" prefWidth="65.0" />
+                                                                        <Label fx:id="labelLight" layoutX="93.0" layoutY="10.0" />
+                                                                        <Label fx:id="labelWindow" layoutX="159.0" layoutY="10.0" />
+                                                                        <Label fx:id="labelDoor" layoutX="265.0" layoutY="10.0" />
+                                                                        <Button fx:id="autoModeBt" layoutX="213.0" layoutY="381.0" mnemonicParsing="false" onAction="#autoModeOnClick" text="OFF" />
+                                                                        <Label layoutX="61.0" layoutY="386.0" text="Auto Mode" />
+                                                                     </children>
+                                                                                        </AnchorPane>
+                                                                                    </items>
+                                                                                </SplitPane>
+                                                                            </children>
+                                                                        </AnchorPane>
+                                                                    </content>
+                                                                </Tab>
+                                                                <Tab style="-fx-background-color: #FFC107;" text="SHP">
+                                                                    <content>
+                                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                         <children>
+                                                            <Label layoutX="65.0" layoutY="52.0" text="Away Mode" />
+                                                            <ToggleButton fx:id="awayModeON" layoutX="164.0" layoutY="49.0" mnemonicParsing="false" onMouseClicked="#onMouseClickAwayToggleON" text="ON">
+                                                               <toggleGroup>
+                                                                  <ToggleGroup fx:id="awayModeToggle" />
+                                                               </toggleGroup>
+                                                            </ToggleButton>
+                                                            <ToggleButton fx:id="awayModeOFF" layoutX="199.0" layoutY="49.0" mnemonicParsing="false" onMouseClicked="#onMouseClickAwayToggleOFF" text="OFF" toggleGroup="$awayModeToggle" />
+                                                         </children>
+                                                         <children>
+                                                             <VBox layoutX="35.0" layoutY="100.0" spacing="10.0">
+                                                                <Label style="-fx-font-size: 20px;" text="Lights Schedule" />
+                                                                 <Label fx:id="roomToLight" text="Lights will remain on in selected rooms" />
+                                                                 <Button onAction="#scheduleLights" style="-fx-background-color: white; -fx-text-fill: black;" text="Add" />
+                                                                 <VBox spacing="0">
+                                                                     <Label text="How much time should pass" wrapText="true" />
+                                                                     <Label text="before alerting authorities?" wrapText="true" />
+                                                                 </VBox>
+                                                                 <TextField fx:id="timeBeforeAlertInput" onAction="#onSetTimeBeforeAlert" promptText="Enter time in seconds" />
+                                                             </VBox>
+                                                         </children>
+                                                          </AnchorPane>
+                                                                    </content>
+                                                                </Tab>
+                                                                <Tab style="-fx-background-color: #FFEB3B;" text="SHH">
+                                                                    <content>
+                                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                         <children>
+                                                            <AnchorPane fx:id="aPZone" layoutX="6.0" layoutY="-1.0" prefHeight="563.0" prefWidth="400">
+                                                               <children>
+                                                                   <Label layoutX="238.0" layoutY="5.0" text="Away Mode"/>
+                                                                   <Label layoutX="228.0" layoutY="19.0" text="Default Temps: " />
+                                                                   <Label layoutX="229.0" layoutY="42.0" text="Summer:" />
+                                                                   <Label layoutX="229.0" layoutY="63.0" text="Winter:" />
+                                                                   <HBox fx:id="hBoxSummer" alignment="CENTER" layoutX="226.0" layoutY="38.0" prefHeight="27.0" prefWidth="169.0" spacing="2.0">
+                                                                       <children>
+                                                                           <Label fx:id="defaultAwaySummer" onMouseClicked="#setDefaultSummer" stylesheets="@application.css" />
+                                                                           <Label text="°C" />
+                                                                       </children>
+                                                                   </HBox>
+                                                                   <HBox fx:id="defaultSummerContainer" layoutX="1.0" layoutY="632.0" prefHeight="35.0" prefWidth="222.0" visible="false">
+                                                                       <children>
+                                                                           <TextField fx:id="summerAwayTF" />
+                                                                       </children>
+                                                                   </HBox>
+                                                                   <HBox fx:id="hBoxWinter" alignment="CENTER" layoutX="226.0" layoutY="60" prefHeight="27.0" prefWidth="169.0" spacing="2.0">
+                                                                       <children>
+                                                                           <Label fx:id="defaultAwayWinter" onMouseClicked="#setDefaultWinter" stylesheets="@application.css"/>
+                                                                           <Label text="°C" />
+                                                                       </children>
+                                                                   </HBox>
+                                                                   <HBox fx:id="defaultWinterContainer" layoutX="1.0" layoutY="632.0" prefHeight="35.0" prefWidth="222.0" visible="false">
+                                                                       <children>
+                                                                           <TextField fx:id="winterAwayTF" />
+                                                                       </children>
+                                                                   </HBox>
+
+                                                                  <ComboBox fx:id="comboRoom" layoutX="14.0" layoutY="28.0" prefHeight="27.0" prefWidth="143.0" />
+                                                                  <Label layoutX="15.0" layoutY="5.0" style="-fx-font-size: 12;" text="Room:" />
+                                                                  <VBox fx:id="vboxRooms" layoutX="11.0" layoutY="77.0" prefHeight="144.0" prefWidth="133.0" />
+                                                                  <Button fx:id="buttonAddRoom" cancelButton="true" layoutX="165.0" layoutY="28.0" mnemonicParsing="false" onAction="#addRoom" prefHeight="26.0" prefWidth="59.0" style="-fx-max-width: 50; -fx-font-size: 12;" text="Add" />
+                                                                  <Button fx:id="buttonCreateZone" layoutX="160.0" layoutY="107.0" mnemonicParsing="false" onAction="#createZone" style="-fx-max-width: 50; -fx-font-size: 12;" text="Create" />
+                                                                  <Label layoutX="15.0" layoutY="62.0" style="-fx-font-size: 12;" text="Selected Rooms:" />
+                                                                  <Label layoutX="151.0" layoutY="61.0" style="-fx-font-size: 12;" text="Zone:" />
+                                                                  <TextField fx:id="textZoneName" layoutX="150.0" layoutY="76.0" prefHeight="27.0" prefWidth="59.0" />
+                                                                  <Label layoutX="9.0" layoutY="225.0" style="-fx-font-size: 12;" text="Room name             8h-16h    16h-00h   00h-8h ">
+                                                                     <font>
+                                                                        <Font size="8.0" />
+                                                                     </font></Label>
+                                                                  <VBox fx:id="vboxZones" layoutX="8.0" layoutY="245.0" prefHeight="157.0" prefWidth="320.0" />
+                                                                  <Label layoutX="11.0" layoutY="403.0" prefHeight="19.0" prefWidth="181.0" style="-fx-font-size: 12;" text="Change Temperature" />
+                                                                  <VBox fx:id="vboxDesiredTemp" layoutX="10.0" layoutY="426.0" prefHeight="129.0" prefWidth="320.0" />
+                                                               </children>
+                                                            </AnchorPane>
+                                                         </children></AnchorPane>
+                                                                    </content>
+                                                                </Tab>
+                                                            </tabs>
+                                                        </TabPane>
+                                                    </children>
+                                                </AnchorPane>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                    <children>
+                                                        <BorderPane layoutX="17.0" layoutY="9.0" prefHeight="586.0" prefWidth="309.0" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="9.0">
+                                                            <center>
+                                                                <Canvas fx:id="houseRender" height="522.0" width="355.0" />
+                                                            </center>
+                                             <top>
+                                                                <Label style="-fx-font-size: 20px;" stylesheets="@application.css" text="House" textAlignment="CENTER" BorderPane.alignment="CENTER" />
+                                             </top>
+                                                        </BorderPane>
+                                          <Label fx:id="labelAwayMode" layoutX="9.0" layoutY="38.0" prefHeight="17.0" prefWidth="126.0" />
+                                                    </children>
+                                                </AnchorPane>
+                                            </items>
+                                        </SplitPane>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="135.0" prefWidth="677.0">
+                           <children>
+                              <TextArea fx:id="console" editable="false" layoutX="8.0" layoutY="-3.0" prefHeight="137.0" prefWidth="665.0" styleClass="custom" stylesheets="@application.css" wrapText="true">
+                                 <padding>
+                                    <Insets left="10.0" right="10.0" />
+                                 </padding>
+                              </TextArea>
+                           </children></AnchorPane>
+                            </items>
+                        </SplitPane>
+                    </children>
+                </AnchorPane>
+            </items>
+        </SplitPane>
+        <Label layoutX="881.0" onMouseClicked="#close" prefHeight="25.0" prefWidth="20.0" stylesheets="@application.css" text="X">
+            <font>
+                <Font name="System Bold" size="24.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>

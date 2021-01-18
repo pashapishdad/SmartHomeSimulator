@@ -1,0 +1,82 @@
+{"rooms": [
+	{
+		"name": "Living Room",
+		"windows": [
+			{ "position": 2 },
+		],
+		"doors": [
+			{ "position": 1, "connection": "Kitchen" },
+			{ "position": 4, "connection": "Backyard" },
+			{ "position": 3, "connection": "Entrance" },
+		],
+		"lights": 1
+	},
+	{
+		"name": "Kitchen",
+		"windows": [],
+		"doors": [
+			{ "position": 3, "connection": "Living Room" },
+			{ "position": 2, "connection": "Bedroom 1" },
+			{ "position": 1, "connection": "Bathroom" },
+			{ "position": 4, "connection": "Bedroom 2" },
+		],
+		"lights": 1
+	},
+	{
+		"name": "Bedroom 1",
+		"windows": [
+			{ "position": 1 }
+		],
+		"doors": [
+			{ "position": 4, "connection": "Kitchen" }
+		],
+		"lights": 1
+	},
+	{
+		"name": "Bathroom",
+		"windows": [
+			{ "position": 1 }
+		],
+		"doors": [
+			{ "position": 3, "connection": "Kitchen" }
+		],
+		"lights": 1
+	},
+	{
+		"name": "Bedroom 2",
+		"windows": [
+			{ "position": 1 },
+			{ "position": 4 },
+			{ "position": 3 }
+		],
+		"doors": [
+			{ "position": 2, "connection": "Kitchen" }
+		],
+		"lights": 1
+	},
+	{
+    	"name": "Backyard",
+    	"windows": [],
+    	"doors": [
+    		{ "position": 2, "connection": "Living Room" },
+    	],
+    	"lights": 1
+    },
+    {
+        "name": "Entrance",
+        "windows": [],
+        "doors": [
+            { "position": 1, "connection": "Living Room" },
+            { "position": 2, "connection": "Garage" },
+        ],
+        "lights": 1
+    },
+    {
+        "name": "Garage",
+        "windows": [],
+        "doors": [
+            { "position": 4, "connection": "Entrance" },
+        ],
+        "lights": 1
+    }
+]}

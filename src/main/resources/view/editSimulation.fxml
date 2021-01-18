@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="900.0" style="-fx-background-radius: 5;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EditSimulationController">
+   <children>
+      <AnchorPane layoutX="6.0" onMouseDragged="#move" onMousePressed="#getLocation" prefHeight="750" prefWidth="900" styleClass="root" stylesheets="@application.css">
+         <children>
+            <Label layoutX="882.0" layoutY="5.0" onMouseClicked="#close" stylesheets="@application.css" text="X">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="button" layoutX="258.0" layoutY="139.0" mnemonicParsing="false" onAction="#changeLocation" stylesheets="@application.css" text="Confirm" />
+            <Button fx:id="button" layoutX="775.0" layoutY="695.0" mnemonicParsing="false" onAction="#goToLoginInfo" text="Go Back" />
+            <Label fx:id="userToMove" layoutX="15.0" layoutY="82.0" text="Edit User's Location" />
+            <Label fx:id="windowToBlock" layoutX="19.0" layoutY="468.0" text="Room to un/block window:" />
+            <ComboBox fx:id="roomsMove" layoutX="208.0" layoutY="85.0" prefWidth="150.0" />
+
+            <ComboBox fx:id="roomsBlock" layoutX="208.0" layoutY="427.0" onMouseClicked="#cb_selectWindowOnChange" prefWidth="150.0" />
+            <ComboBox fx:id="windows" layoutX="208.0" layoutY="470.0" onAction="#cb_onWindowChange" prefWidth="150.0" />
+            <Label layoutX="19.0" layoutY="424.0" prefHeight="17.0" prefWidth="123.0" text="Select Room:" />
+            <Button fx:id="button" layoutX="258.0" layoutY="521.0" mnemonicParsing="false" onAction="#windowsBlocked" text="Action" />
+            <AnchorPane fx:id="locationDisplay" layoutX="464.0" layoutY="69.0" prefHeight="215.0" prefWidth="415.0" />
+            <TextArea fx:id="windowNote" layoutX="474.0" layoutY="410.0" prefHeight="247.0" prefWidth="396.0" style="-fx-background-color: #455A64;" styleClass="custom" stylesheets="@application.css" />
+            <Label fx:id="windowBlockStatus" layoutX="213.0" layoutY="495.0" prefHeight="19.0" prefWidth="140.0" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Italic" size="10.0" />
+               </font>
+            </Label>
+            <Label layoutX="15.0" layoutY="284.0" text="Change Season Dates" />
+            <Label layoutX="25.0" layoutY="315.0" text="Summer" />
+            <Label layoutX="25.0" layoutY="343.0" text="Winter" />
+            <ComboBox fx:id="summerDayStart" layoutX="142.0" layoutY="312.0" onAction="#onChangeSummerStartDay" prefHeight="25.0" prefWidth="71.0" />
+            <ComboBox fx:id="summerMonthStart" layoutX="224.0" layoutY="312.0" onAction="#onChangeSummerStartMonth" prefWidth="150.0" />
+            <ComboBox fx:id="winterDayStart" layoutX="142.0" layoutY="340.0" onAction="#onChangeWinterStartDay" prefHeight="25.0" prefWidth="71.0" />
+            <ComboBox fx:id="winterMonthStart" layoutX="224.0" layoutY="340.0" onAction="#onChangeWinterStartMonth" prefWidth="150.0" />
+            <Label layoutX="96.0" layoutY="315.0" text="From:" />
+            <Label layoutX="96.0" layoutY="343.0" text="From:" />
+            <Label layoutX="402.0" layoutY="343.0" text="To:" />
+            <Label layoutX="402.0" layoutY="315.0" text="To:" />
+            <ComboBox fx:id="summerDayEnd" layoutX="439.0" layoutY="312.0" onAction="#onChangeSummerEndDay" prefHeight="25.0" prefWidth="71.0" />
+            <ComboBox fx:id="summerMonthEnd" layoutX="522.0" layoutY="312.0" onAction="#onChangeSummerEndMonth" prefWidth="150.0" />
+            <ComboBox fx:id="winterDayEnd" layoutX="439.0" layoutY="340.0" onAction="#onChangeWinterEndDay" prefHeight="25.0" prefWidth="71.0" />
+            <ComboBox fx:id="winterMonthEnd" layoutX="522.0" layoutY="340.0" onAction="#onChangeWinterEndMonth" prefWidth="150.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

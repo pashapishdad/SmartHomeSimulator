@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750" prefWidth="900" style="-fx-background-radius: 5;" styleClass="test" stylesheets="@application.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+   <children>
+      <AnchorPane onMouseDragged="#move" onMousePressed="#getLocation" prefHeight="752.0" prefWidth="899.0" styleClass="root" stylesheets="@application.css">
+         <children>
+            <Button layoutX="400.0" layoutY="471.0" mnemonicParsing="false" onAction="#loginInfo" stylesheets="@application.css" text="Login" />
+            <TextField fx:id="userD" layoutX="370.0" layoutY="230.0" promptText="username" styleClass="text-box" stylesheets="@application.css" />
+            <PasswordField fx:id="passD" layoutX="370.0" layoutY="305.0" promptText="password" styleClass="text-box" stylesheets="@application.css" />
+            <Hyperlink layoutX="381.0" layoutY="414.0" onAction="#goToForgotPassword" styleClass="link" stylesheets="@application.css" text="Forgot Password?" textAlignment="CENTER" textFill="#4f99d7" />
+            <Label layoutX="875.0" layoutY="7.0" onMouseClicked="#close" stylesheets="@application.css" text="X">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Button layoutX="400.0" layoutY="519.0" mnemonicParsing="false" onAction="#goToSignUp" stylesheets="@application.css" text="Sign Up" />
+            <Label fx:id="displayMessage" layoutX="337.0" layoutY="365.0" prefHeight="17.0" prefWidth="256.0" stylesheets="@application.css" textAlignment="CENTER" textFill="#f50101" />
+            <Label fx:id="title" layoutX="319.0" layoutY="56.0" stylesheets="@application.css" text="Smart Home Simulator" />
+            <Label layoutX="373.0" layoutY="187.0" text="Username:" />
+            <Label layoutX="373.0" layoutY="278.0" text="Password:" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
